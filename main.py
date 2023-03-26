@@ -48,13 +48,21 @@ async def on_message(message:discord.Message):
     args = message.content.split(" ")
     args[0] = args[0][1::]
     print(args)
-    if args[0] == "Pls" :
+    if args[0] == "Generate" :
         driver.get('https://www.vcrdb.net/builder?c=0')
         randomizerButton = WebDriverWait(driver, timeout=10).until(lambda d: d.find_element(By.XPATH, '//*[@id="builderRandomize"]'))
         randomizerButton.click()
         copyButton = WebDriverWait(driver, timeout=10).until(lambda d: d.find_element(By.XPATH, '//*[@id="builderCopy"]'))
+        img = WebDriverWait(driver, timeout=10).until(lambda d: d.find_element(By.XPATH, '//*[@id="builderImage"]/div[1]/x-hair/canvas'))
+        imgPATH = 'C:/Users/modib/Documents/kali/py/ValRandomCrosshair/img.png'
+        img.screenshot(imgPATH)
         copyButton.click()
         code = pyperclip.paste()
-        await message.channel.send('Here is your random code' + '`' + code + '`')
+        mbd = discord.Embed(title="Crosshair :", color = Color.green())
+        #mbd.set_image(url = discord.File(imgPATH))
+        mbd.add_field(name = "Here is your random code", value = ('`' + code + '`'))
+        await message.channel.send(embed = mbd)
+        await message.channel.send(file = discord.File(imgPATH))
+        os.remove(imgPATH)
 
 client.run(TOKEN)
