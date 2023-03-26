@@ -61,6 +61,7 @@ async def on_message(message:discord.Message):
         mbd = discord.Embed(title="Crosshair :", color = Color.green())
         #mbd.set_image(url = discord.File(imgPATH))
         mbd.add_field(name = "Here is your random code", value = ('`' + code + '`'))
+        pyperclip.copy('')
         await message.channel.send(embed = mbd)
         await message.channel.send(file = discord.File(imgPATH))
         os.remove(imgPATH)
