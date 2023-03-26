@@ -3,6 +3,6 @@ This is a python discord bot that uses https://www.vcrdb.net/builder?c=0 generat
 It is fun to use for challenges XD
 ## Usage :
 - Prefix before every command ";"
-- Get random crosshair : ```<prefix> pls```
+- Get random crosshair : ```<prefix> Generate```
 ## Credits :
 The one and only creator is : [TenebrisOS](https://github.com/TenebrisOS)
